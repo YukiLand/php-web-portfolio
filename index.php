@@ -1,3 +1,11 @@
+<?php 
+require 'includes/functions.php';
+$page = isset($_GET['page']) ? $_GET['page'] : 0;
+
+$selection = findPaged(4, 12);
+?>
+
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -37,18 +45,19 @@
                         </a>
                     </p>
                     <div id="pictures">
-                        <a href="detail.html" title="Picture 1">
-                            <img src="css/small.jpg" alt="Picture 1">
+                        <?php
+                        foreach ($selection as $picture)
+                        {
+                            $src='images/small/'. $picture['slug'] . '.jpg';
+                        ?>
+
+                        <a href="detail.php?id=<?php echo $picture['id'] ?>" title="Picture 1">
+
+                            <img src = "<?php echo $src; ?>">
                         </a>
-                        <a href="detail.html" title="Picture 2">
-                            <img src="css/small.jpg" alt="Picture 2">
-                        </a>
-                        <a href="detail.html" title="Picture 3">
-                            <img src="css/small.jpg" alt="Picture 3">
-                        </a>
-                        <a href="detail.html" title="Picture 4">
-                            <img src="css/small.jpg" alt="Picture 4">
-                        </a>
+                        <?php 
+                        }
+                        ?>
                     </div>
                 </div><!-- end second column -->
             </div><!-- end row -->

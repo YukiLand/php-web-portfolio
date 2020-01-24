@@ -35,7 +35,7 @@ $src='images/large/' . $photo['slug'] . '.jpg';
             <!-- Picture description  -->
             <p><?php echo $photo['description'];?></p>
             <p id="pager">
-                <a href="javascript:void(0)" class="btn disabled">
+                <a href="" class="">
                     Previous shot
                 </a>
                 <a href="gallery.html" class="btn">
